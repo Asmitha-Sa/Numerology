@@ -40,8 +40,7 @@ F, P → 8
 
 ## 🚀 Live Demo
 
-👉 [Click here to try it live](https://yourusername.github.io/Numerlogy/)  
-*(Replace with your actual GitHub Pages link)*
+👉 https://asmitha-sa.github.io/Numerology/
 
 ---
 
@@ -54,4 +53,5 @@ F, P → 8
 - 📲 Optimized for mobile-first usage
 
 ---
+
 
