@@ -5,7 +5,21 @@
   font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 
-body {
+/* 💠 Initial: center the whole container */
+body.centered {
+  background: linear-gradient(to right, #bb82d5, #e0b8f1);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  overflow-x: hidden;
+  transition: all 0.4s ease;
+}
+
+/* 💠 After result: align top */
+body.moved-top {
   background: linear-gradient(to right, #bb82d5, #e0b8f1);
   color: #333;
   min-height: 100vh;
@@ -14,6 +28,7 @@ body {
   align-items: flex-start;
   padding: 40px 20px;
   overflow-x: hidden;
+  transition: all 0.4s ease;
 }
 
 /* Main Container */
@@ -25,7 +40,6 @@ body {
   width: 100%;
   max-width: 700px;
   transition: all 0.3s ease-in-out;
-  margin-top: 10vh; /* ⬅️ Push it down from top */
 }
 
 /* Header */
@@ -116,15 +130,16 @@ button:hover {
 
 /* Responsive Styles */
 @media screen and (max-width: 480px) {
-  body {
+  body.centered,
+  body.moved-top {
     padding: 20px 10px;
+    align-items: flex-start;
   }
 
   .container {
     padding: 20px;
     border-radius: 12px;
     max-width: 95%;
-    margin-top: 5vh;
   }
 
   h1 {
