@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#4a148c" />
   <link rel="icon" href="assets/icon.png" type="image/png">
 </head>
-<body class = "centered">
+<body class="centered">
   <div class="container">
     <h1>🔮 Numerology Pyramid</h1>
 
@@ -22,17 +22,13 @@
 
   <script src="script.js"></script>
   <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(function (registration) {
-          console.log("Service Worker registered with scope:", registration.scope);
-        }, function (err) {
-          console.log("Service Worker registration failed:", err);
-        });
-    });
-  }
-</script>
-
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => console.log("SW registered:", reg.scope))
+          .catch(err => console.log("SW failed:", err));
+      });
+    }
+  </script>
 </body>
 </html>

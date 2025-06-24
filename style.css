@@ -5,7 +5,7 @@
   font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 
-/* 💠 Initial: center the whole container */
+/* 💠 Center by default */
 body.centered {
   background: linear-gradient(to right, #bb82d5, #e0b8f1);
   color: #333;
@@ -18,7 +18,7 @@ body.centered {
   transition: all 0.4s ease;
 }
 
-/* 💠 After result: align top */
+/* 💠 Move to top (desktop only) */
 body.moved-top {
   background: linear-gradient(to right, #bb82d5, #e0b8f1);
   color: #333;
@@ -66,7 +66,7 @@ input:focus {
   background-color: #ebdaf3;
 }
 
-/* Main Button */
+/* Button */
 button {
   width: 100%;
   padding: 12px;
@@ -82,13 +82,11 @@ button:hover {
   background-color: #490d64;
 }
 
-/* Result Output */
+/* Result */
 .result-box {
   margin-top: 24px;
   text-align: center;
 }
-
-/* Final Results */
 .final-output,
 .total-output {
   font-weight: bold;
@@ -97,7 +95,7 @@ button:hover {
   margin-bottom: 8px;
 }
 
-/* Toggle Button */
+/* Toggle */
 .toggle-btn {
   margin-top: 14px;
   padding: 10px 16px;
@@ -128,12 +126,12 @@ button:hover {
   word-break: break-word;
 }
 
-/* Responsive Styles */
+/* Responsive */
 @media screen and (max-width: 480px) {
   body.centered,
   body.moved-top {
+    align-items: center !important;
     padding: 20px 10px;
-    align-items: flex-start;
   }
 
   .container {

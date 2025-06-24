@@ -11,7 +11,7 @@ function buildPyramid(arr) {
     const prev = levels[levels.length - 1];
     const next = [];
     for (let i = 0; i < prev.length - 1; i++) {
-      next.push(prev[i] + prev[i + 1]); // no reduction
+      next.push(prev[i] + prev[i + 1]);
     }
     levels.push(next);
   }
@@ -57,33 +57,32 @@ function handleUnified() {
   const pyramid = buildPyramid(digits);
   showReducedOnly(pyramid, resultArea);
 
-  // Move UI upward if it was centered initially
-  document.body.classList.remove("centered");
-  document.body.classList.add("moved-top");
+  // Only move to top if desktop
+  if (window.innerWidth > 480) {
+    document.body.classList.remove("centered");
+    document.body.classList.add("moved-top");
+  }
 }
 
 function showReducedOnly(pyramid, element) {
   const levelContainer = document.createElement("div");
   levelContainer.id = "pyramidContainer";
 
-  // Input Sum (unreduced)
   const level1 = pyramid[0];
   const inputSum = level1.reduce((a, b) => a + b, 0);
   const sumText = document.createElement("div");
   sumText.className = "total-output";
-  sumText.textContent = `🔢 Input Name Total: ${inputSum}`;
+  sumText.textContent = `🔢 Numerology Name No. : ${inputSum}`;
   element.appendChild(sumText);
 
-  // Final row reduced and joined
   const lastRowRaw = pyramid[pyramid.length - 1];
   const finalDigits = lastRowRaw.map(n => reduceToDigit(n));
   const final = finalDigits.join('');
   const finalText = document.createElement("div");
   finalText.className = "final-output";
-  finalText.textContent = `🎯 Pyramid Total: ${final}`;
+  finalText.textContent = `🎯 Pyramid No. : ${final}`;
   element.appendChild(finalText);
 
-  // Toggle button
   const toggleBtn = document.createElement("div");
   toggleBtn.className = "toggle-btn";
   toggleBtn.textContent = "🔽 Show Pyramid";
@@ -95,7 +94,6 @@ function showReducedOnly(pyramid, element) {
   };
   element.appendChild(toggleBtn);
 
-  // Pyramid levels (reduced)
   pyramid.forEach((level) => {
     const reduced = level.map(reduceToDigit);
     const reducedRow = document.createElement("div");
