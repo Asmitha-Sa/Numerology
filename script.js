@@ -11,7 +11,7 @@ function buildPyramid(arr) {
     const prev = levels[levels.length - 1];
     const next = [];
     for (let i = 0; i < prev.length - 1; i++) {
-      next.push(prev[i] + prev[i + 1]); 
+      next.push(prev[i] + prev[i + 1]); // no reduction
     }
     levels.push(next);
   }
@@ -43,9 +43,9 @@ function handleUnified() {
 
   for (let ch of input) {
     if (/[0-9]/.test(ch)) {
-      digits.push(parseInt(ch)); 
+      digits.push(parseInt(ch));
     } else if (/[A-Z]/.test(ch)) {
-      digits.push(charToNum[ch] || 0); 
+      digits.push(charToNum[ch] || 0);
     }
   }
 
@@ -56,21 +56,25 @@ function handleUnified() {
 
   const pyramid = buildPyramid(digits);
   showReducedOnly(pyramid, resultArea);
+
+  // Move UI upward if it was centered initially
+  document.body.classList.remove("centered");
+  document.body.classList.add("moved-top");
 }
 
 function showReducedOnly(pyramid, element) {
   const levelContainer = document.createElement("div");
   levelContainer.id = "pyramidContainer";
 
-  // Reduced input digit sum
+  // Input Sum (unreduced)
   const level1 = pyramid[0];
   const inputSum = level1.reduce((a, b) => a + b, 0);
-   const sumText = document.createElement("div");
+  const sumText = document.createElement("div");
   sumText.className = "total-output";
   sumText.textContent = `🔢 Input Name Total: ${inputSum}`;
   element.appendChild(sumText);
 
-  // Final two digits reduced
+  // Final row reduced and joined
   const lastRowRaw = pyramid[pyramid.length - 1];
   const finalDigits = lastRowRaw.map(n => reduceToDigit(n));
   const final = finalDigits.join('');
@@ -78,7 +82,6 @@ function showReducedOnly(pyramid, element) {
   finalText.className = "final-output";
   finalText.textContent = `🎯 Pyramid Total: ${final}`;
   element.appendChild(finalText);
-
 
   // Toggle button
   const toggleBtn = document.createElement("div");
@@ -92,7 +95,7 @@ function showReducedOnly(pyramid, element) {
   };
   element.appendChild(toggleBtn);
 
-  // ✅ Show all pyramid levels, including last row
+  // Pyramid levels (reduced)
   pyramid.forEach((level) => {
     const reduced = level.map(reduceToDigit);
     const reducedRow = document.createElement("div");
