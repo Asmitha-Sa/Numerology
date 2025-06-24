@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -9,11 +8,12 @@
 body {
   background: linear-gradient(to right, #bb82d5, #e0b8f1);
   color: #333;
-  padding: 20px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding: 40px 20px;
+  overflow-x: hidden;
 }
 
 /* Main Container */
@@ -23,8 +23,9 @@ body {
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 700px; /* ⬅️ Wider for desktop */
+  max-width: 700px;
   transition: all 0.3s ease-in-out;
+  margin-top: 10vh; /* ⬅️ Push it down from top */
 }
 
 /* Header */
@@ -32,7 +33,7 @@ h1 {
   text-align: center;
   color: #4b0069;
   margin-bottom: 20px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 /* Input Field */
@@ -69,10 +70,11 @@ button:hover {
 
 /* Result Output */
 .result-box {
-  margin-top: 20px;
+  margin-top: 24px;
   text-align: center;
 }
 
+/* Final Results */
 .final-output,
 .total-output {
   font-weight: bold;
@@ -81,9 +83,9 @@ button:hover {
   margin-bottom: 8px;
 }
 
-/* Toggle Button - Styled like button now */
+/* Toggle Button */
 .toggle-btn {
-  margin-top: 12px;
+  margin-top: 14px;
   padding: 10px 16px;
   background-color: #620d97;
   color: white;
@@ -99,12 +101,13 @@ button:hover {
 
 /* Pyramid Levels */
 #pyramidContainer {
-  margin-top: 12px;
+  margin-top: 16px;
+  padding-bottom: 40px;
 }
 .pyramid-level {
   font-family: monospace;
   font-size: 0.95rem;
-  margin: 4px 0;
+  margin: 5px 0;
   text-align: center;
   color: #333;
   display: none;
@@ -113,14 +116,19 @@ button:hover {
 
 /* Responsive Styles */
 @media screen and (max-width: 480px) {
+  body {
+    padding: 20px 10px;
+  }
+
   .container {
-    padding: 16px;
+    padding: 20px;
     border-radius: 12px;
-    max-width: 90%;
+    max-width: 95%;
+    margin-top: 5vh;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   input,
@@ -143,4 +151,3 @@ button:hover {
     padding: 8px 14px;
   }
 }
-
