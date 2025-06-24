@@ -62,22 +62,23 @@ function showReducedOnly(pyramid, element) {
   const levelContainer = document.createElement("div");
   levelContainer.id = "pyramidContainer";
 
+    // Reduced input digit sum
+  const level1 = pyramid[0];
+  const inputSum = level1.reduce((a, b) => a + b, 0);
+   const sumText = document.createElement("div");
+  sumText.className = "total-output";
+  sumText.textContent = `🔢 Input Name Total: ${inputSum}`;
+  element.appendChild(sumText);
+
   // Final two digits reduced
   const lastRowRaw = pyramid[pyramid.length - 1];
   const finalDigits = lastRowRaw.map(n => reduceToDigit(n));
-  const final = finalDigits.join(' and ');
+  //const final = finalDigits.join('');
   const finalText = document.createElement("div");
   finalText.className = "final-output";
   finalText.textContent = `🎯 Pyramid Total: ${final}`;
   element.appendChild(finalText);
 
-  // Reduced input digit sum
-  const level1 = pyramid[0];
-  const inputSum = level1.reduce((a, b) => a + b, 0);
-   const sumText = document.createElement("div");
-  sumText.className = "total-output";
-  sumText.textContent = `🔢 Input Total: ${inputSum}`;
-  element.appendChild(sumText);
 
   // Toggle button
   const toggleBtn = document.createElement("div");

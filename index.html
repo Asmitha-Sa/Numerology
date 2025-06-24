@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Numerology Pyramid</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4a148c" />
+  <link rel="icon" href="assets/icon.png" type="image/png">
 </head>
 <body>
   <div class="container">
@@ -18,5 +21,18 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function (registration) {
+          console.log("Service Worker registered with scope:", registration.scope);
+        }, function (err) {
+          console.log("Service Worker registration failed:", err);
+        });
+    });
+  }
+</script>
+
 </body>
 </html>
