@@ -105,3 +105,9 @@ function showReducedOnly(pyramid, element) {
 
   element.appendChild(levelContainer);
 }
+
+document.getElementById("unifiedInput").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        handleUnified();
+    }
+});
